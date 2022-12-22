@@ -1,4 +1,4 @@
-import { Router } from "express"
+import { Router } from "express";
 import respond from '../utils/respond';
 import prisma from '../utils/prismaClient';
 
