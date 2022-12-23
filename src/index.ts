@@ -1,8 +1,7 @@
+import config from '../config'
+
 import express from 'express'
 import bodyparser from 'body-parser'
-
-// config
-import config from '../config'
 
 // utils
 import prisma from './utils/prismaClient'
