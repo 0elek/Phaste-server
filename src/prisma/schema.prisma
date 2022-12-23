@@ -8,7 +8,7 @@ datasource db {
 }
 
 model Paste {
-  id        String   @id @default(cuid())
+  id        String   @id 
   title     String   @default("")
   content   String
   createdAt DateTime @default(now())
