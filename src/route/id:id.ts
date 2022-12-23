@@ -22,8 +22,7 @@ router.get('/:id', (req, res) => {
         }
         res.setHeader('title', paste.title)
         res.setHeader('created-at', paste.createdAt.toDateString())
-
-        respond(res, 200, paste.content, "text")
+        respond(res, 200, Buffer.from(paste.content, 'base64').toString('utf-8'), 'text')
         
     })
 })

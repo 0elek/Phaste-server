@@ -8,7 +8,7 @@ const router = Router();
 
 router.get('/', async (req, res) => {
     const title: string = req.headers['title'] as string
-    const content: string = req.body
+    const content: string = Buffer.from(req.body).toString('base64');
     if (req.headers['content-type'] !== 'text/plain') {
         respond(res, 400, 'Content-Type must be text/plain');
         return;
