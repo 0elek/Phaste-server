@@ -5,7 +5,9 @@ import bodyparser from 'body-parser'
 import prisma from './utils/prismaClient'
 // routes
 import create from './route/create'
+
 import id from './route/id'
+import idId from './route/id:id'
 
 const app = express()
 const port = 3333
@@ -21,8 +23,8 @@ app.get('/', (req, res) => {
     res.send('Phaste');
 });
 app.use('/create', create);
-// it is not working becouse we are using /id/id
 app.use('/id', id);
+app.use('/id/', idId);
 
 app.listen(port, () => {
     console.log(`[server]: Server is running at https://localhost:${port}`);

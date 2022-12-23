@@ -1,10 +1,11 @@
 import prisma from "./prismaClient";
+import config from "../../config";
 
 const alphabet = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789-_";
 const length = 4;
 export const id = async () => {
   let fail = 0
-  console.time('id')
+  if (config.logging.id) console.time('id')
   let id = "";
   for (let i = 0; i < length; i++) {
     id = id + alphabet[Math.floor(Math.random() * alphabet.length)];
@@ -18,8 +19,10 @@ export const id = async () => {
     }
   }
 
-  fail > 0 ? console.error(fail) : null;
-  console.timeEnd('id')
+  if (config.logging.id) {
+    console.timeEnd('id')
+    fail > 0 ? console.error(fail) : null;
+  }
   return id;
 }
 
