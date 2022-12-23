@@ -1,6 +1,9 @@
 import express from 'express'
 import bodyparser from 'body-parser'
 
+// config
+import config from '../config'
+
 // utils
 import prisma from './utils/prismaClient'
 // routes
@@ -10,7 +13,7 @@ import id from './route/id'
 import idId from './route/id:id'
 
 const app = express()
-const port = 3333
+const port = config.port
 
 prisma.paste.count().then((count) => {
     console.log(`[database]: Connected to database. There are ${count} pastes in the database`)
